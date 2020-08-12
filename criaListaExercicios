@@ -1,0 +1,61 @@
+#!/bin/bash
+
+cd
+
+#File="bin/file.c"
+echo -n 'Path and name of the file: [path/filename.c] '
+read File
+
+echo -n 'Quantos exercicios gostaria de criar: '
+read nExercicios
+
+exercicio () {
+  echo -e '/*Digite o cabeçalho do exercicio aqui*/'>> $File
+  echo -e 'void exercicio'$counter'(){\n/*Digite o codigo aqui*/\n}\n' >> $File
+}
+exercicioMain (){
+  echo -e '\tcase '$counter':' >> $File
+  echo -e '\t\texercicio'$counter'();\n\t\tbreak;' >> $File
+}
+
+if [ -e $File ]
+then
+  echo "File already exists, overwriting"
+else
+  echo "Creating File $File"
+
+  touch $File 2> /dev/null
+  if [ $? -eq 0 ]
+  then
+    echo "Successfully created file"
+  else
+    echo "ERROR: Could not create file!!" >&2
+    exit
+  fi
+fi
+
+echo -e '#include<stdio.h>\n' > $File
+
+for counter in $(seq 1 $nExercicios);
+do
+  exercicio
+done
+
+
+{
+  echo -e 'void main(){\n'
+  echo -e '\tint escolha;\n'
+  echo -e '\tprintf("Executar qual exercicio? ");'
+  echo -e '\tscanf("%d",&escolha);\n'
+  echo -e '\tswitch(escolha){'
+} >> $File
+
+
+for counter in $(seq 1 $nExercicios);
+do
+  exercicioMain
+done
+
+echo -e '\tdefault:\n\t\tprintf("Exercicio nao existente!!\\n");' >> $File
+echo -e '\t}\n}' >> $File
+echo -e 'Finished\n'
