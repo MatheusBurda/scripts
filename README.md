@@ -2,6 +2,8 @@
 
 Alguns scripts que uso no meu dia a dia.
 
+Adicionarei mais scripts ao criá-los.
+
 ## criaListaExercícios
 
 Cria um arquivo .c para eu usar nas aulas que tem programação em linguagem c.
