@@ -1,2 +1,3 @@
-# scripts
-Some useful scripts used on my daily
+# Scripts
+
+Alguns scripts que uso no meu dia a dia.
