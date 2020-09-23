@@ -8,7 +8,7 @@ Adicionarei mais scripts ao criá-los.
 
 Cria um arquivo .c para eu usar nas aulas que tem programação em linguagem c, facilitando a resolução de listas de exercícios.
 
-O arquivo criado com parâmetro 2 para quantidade de exercícios fica com a seguinte configuração:
+O arquivo criado com parâmetro 2 para quantidade de exercícios, fica com a seguinte configuração:
 ```
 #include<stdio.h>
 
